@@ -1,3 +1,7 @@
+mod tba_data;
+
+use tba_data::TBAData;
+
 use rouille::Request;
 use rouille::Response;
 use std::io::Read;
