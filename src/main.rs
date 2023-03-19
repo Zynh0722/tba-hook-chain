@@ -5,6 +5,7 @@ use tba_data::TBAData;
 use rouille::Request;
 use rouille::Response;
 use std::io::Read;
+use serde_json;
 
 fn main() {
     rouille::start_server("0.0.0.0:5369", move |req| {
@@ -15,10 +16,10 @@ fn main() {
             Ok(_) => (),
             Err(_) => return Response::text("Failed to read body")
         };
+        
+        let data: TBAData = serde_json::from_reader(&buf[..]).expect("failed data parsing");
 
-        if let Ok(str) = String::from_utf8(buf) {
-            println!("{}\n{}", req.url(), str);
-        }
+        println!("{:?}", data);
 
         Response::text("")
     })
