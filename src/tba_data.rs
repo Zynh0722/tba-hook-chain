@@ -9,6 +9,7 @@ pub enum TBAData {
     Verification(Verification),
     Ping(Ping),
     Broadcast(Broadcast),
+    UpcomingMatch(UpcomingMatch)
 }
 
 #[derive(Deserialize, Debug)]
