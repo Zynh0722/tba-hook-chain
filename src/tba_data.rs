@@ -9,19 +9,19 @@ pub enum TBAData {
     Verification(Verification),
     Ping(Ping),
     Broadcast(Broadcast),
-    UpcomingMatch(UpcomingMatch)
+    UpcomingMatch(UpcomingMatch),
 }
 
 #[derive(Deserialize, Debug)]
 pub struct Verification {
-    pub verification_key: String
+    pub verification_key: String,
 }
 
 #[derive(Deserialize, Debug)]
 pub struct Ping {
     pub title: String,
     #[serde(rename = "desc")]
-    pub description: String
+    pub description: String,
 }
 
 #[derive(Deserialize, Debug)]
@@ -29,9 +29,8 @@ pub struct Broadcast {
     pub title: String,
     #[serde(rename = "desc")]
     pub description: String,
-    pub url: String
+    pub url: String,
 }
-
 
 #[derive(Deserialize, Debug)]
 pub struct UpcomingMatch {
@@ -42,7 +41,7 @@ pub struct UpcomingMatch {
     pub team_keys: [TeamNumber; 6],
     pub scheduled_time: u32,
     pub predicted_time: u32,
-    pub webcast: Webcast
+    pub webcast: Webcast,
 }
 
 #[derive(Deserialize, Debug)]
